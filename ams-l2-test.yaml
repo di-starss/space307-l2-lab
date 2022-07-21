@@ -1,0 +1,32 @@
+name: ams-l2-test
+prefix: ""
+
+mgmt:
+  network: statics
+  ipv4_subnet: 172.16.99.0/24
+
+topology:
+  kinds:
+    ceos:
+      image: ceos:4.28.0F
+    linux:
+      image: ghcr.io/hellt/network-multitool
+  nodes:
+    # core
+    ams0-core-13-14-sw0:
+      kind: ceos
+      mgmt_ipv4: 172.16.99.11
+    ams0-core-14-13-sw1:
+      kind: ceos
+      mgmt_ipv4: 172.16.99.12
+    # vfarm
+    vfarm-lambo-rack-5:
+      kind: linux
+      mgmt_ipv4: 172.16.99.100
+    vfarm-lambo-rack-6:
+      kind: linux
+      mgmt_ipv4: 172.16.99.101
+  links:
+    # core / isl
+    - endpoints: ["ams0-core-13-14-sw0:eth51", "ams0-core-14-13-sw1:eth51"]
+    - endpoints: ["ams0-core-13-14-sw0:eth52", "ams0-core-14-13-sw1:eth52"]
