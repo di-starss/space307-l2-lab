@@ -1,5 +1,5 @@
-name: ams
-prefix: ""
+name: ams-l2-lab-netops
+prefix: netops
 
 mgmt:
   network: statics
