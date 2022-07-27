@@ -1,5 +1,5 @@
 name: ams-l2-test
-prefix: ""
+prefix: test
 
 mgmt:
   network: statics
@@ -15,17 +15,17 @@ topology:
     # core
     ams0-core-13-14-sw0:
       kind: ceos
-      mgmt_ipv4: 172.16.99.11
+      mgmt_ipv4: 172.16.99.110
     ams0-core-14-13-sw1:
       kind: ceos
-      mgmt_ipv4: 172.16.99.12
+      mgmt_ipv4: 172.16.99.120
     # vfarm
     vfarm-lambo-rack-5:
       kind: linux
-      mgmt_ipv4: 172.16.99.100
+      mgmt_ipv4: 172.16.99.200
     vfarm-lambo-rack-6:
       kind: linux
-      mgmt_ipv4: 172.16.99.101
+      mgmt_ipv4: 172.16.99.201
   links:
     # core / isl
     - endpoints: ["ams0-core-13-14-sw0:eth51", "ams0-core-14-13-sw1:eth51"]
